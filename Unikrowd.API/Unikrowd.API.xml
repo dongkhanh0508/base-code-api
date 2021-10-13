@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Unikrowd.API</name>
+    </assembly>
+    <members>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.AccountsController.GetAccounts(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Account
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

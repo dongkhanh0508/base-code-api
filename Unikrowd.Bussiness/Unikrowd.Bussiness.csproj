@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unikrowd.Data\Unikrowd.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\Responses\" />
+    <Folder Include="DTOs\Requests\" />
+    <Folder Include="MapperViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt-Official" Version="0.1.109" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="5.0.10" />
+  </ItemGroup>
+
+</Project>
