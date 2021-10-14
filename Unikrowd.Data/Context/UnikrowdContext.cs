@@ -55,11 +55,12 @@ namespace Unikrowd.Data.Context
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=tcp:54.151.235.125,1433;Database=dev-crowdfundingplatform;User ID=dev-fseed;Password=PX:K37(Mh8T4WdktUx#yZ$+?a_D;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:54.151.235.125,1433;Database=crowdfundingplatform-staging;User ID=dev-fseed;Password=PX:K37(Mh8T4WdktUx#yZ$+?a_D;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;");
             }
-        }       
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {          
+        {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Account>(entity =>
@@ -73,11 +74,7 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.Password).HasMaxLength(20);
-
-                entity.Property(e => e.Role).HasMaxLength(20);
-
-                entity.Property(e => e.Status).HasMaxLength(20);
+                entity.Property(e => e.Password).HasMaxLength(500);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
@@ -464,35 +461,33 @@ namespace Unikrowd.Data.Context
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Address).HasMaxLength(100);
+                entity.Property(e => e.Address).HasMaxLength(300);
 
                 entity.Property(e => e.Bank).HasMaxLength(100);
 
-                entity.Property(e => e.BanksAccount).HasMaxLength(30);
+                entity.Property(e => e.BanksAccount).HasMaxLength(50);
 
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.Dob)
                     .HasColumnType("datetime")
                     .HasColumnName("DOB");
 
-                entity.Property(e => e.Email).HasMaxLength(100);
+                entity.Property(e => e.Email)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.IdCard).HasMaxLength(20);
+                entity.Property(e => e.IdCard).HasMaxLength(50);
 
                 entity.Property(e => e.Name).HasMaxLength(100);
 
-                entity.Property(e => e.Phone).HasMaxLength(20);
-
-                entity.Property(e => e.Status).HasMaxLength(20);
+                entity.Property(e => e.Phone)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Investors)
@@ -517,21 +512,17 @@ namespace Unikrowd.Data.Context
             {
                 entity.ToTable("Location");
 
+                entity.Property(e => e.Address).HasMaxLength(500);
+
                 entity.Property(e => e.City).HasMaxLength(50);
 
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.District).HasMaxLength(50);
 
-                entity.Property(e => e.Status).HasMaxLength(30);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.Property(e => e.Ward).HasMaxLength(50);
 

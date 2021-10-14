@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Unikrowd.Bussiness.Excepstons
+namespace Unikrowd.Bussiness.Exceptions
 {
     public class CustomException : Exception
     {

@@ -16,8 +16,8 @@ namespace Unikrowd.Data.Entity
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
-        public string Status { get; set; }
+        public int? Role { get; set; }
+        public int? Status { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedAt { get; set; }
         public int? UpdatedBy { get; set; }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using static Unikrowd.Data.Enums.CommonEnums;
+using static Unikrowd.Bussiness.CommonModels.CommonEnums;
 
 namespace Unikrowd.Bussiness.CommonModels
 {

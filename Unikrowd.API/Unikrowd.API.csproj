@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\DongKhanh\source\repos\Unikrowd\Unikrowd.API\Unikrowd.API.xml</DocumentationFile>
+    <DocumentationFile>D:\RESO\Unikrows\base-code-api\Unikrowd.API\Unikrowd.API.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\RESO\Unikrows\base-code-api\Unikrowd.API\Unikrowd.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

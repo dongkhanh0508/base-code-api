@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace Unikrowd.Data.Entity
+namespace Unikrowd.Bussiness.MapperViewModels
 {
-    public partial class Investor
+    public class InvestorViewModel
     {
-        public Investor()
-        {
-            Investments = new HashSet<Investment>();
-            InvestorLocations = new HashSet<InvestorLocation>();
-            Locations = new HashSet<Location>();
-        }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime? Dob { get; set; }
@@ -29,10 +21,5 @@ namespace Unikrowd.Data.Entity
         public DateTime? CreatedAt { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
-
-        public virtual Account User { get; set; }
-        public virtual ICollection<Investment> Investments { get; set; }
-        public virtual ICollection<InvestorLocation> InvestorLocations { get; set; }
-        public virtual ICollection<Location> Locations { get; set; }
     }
 }

@@ -26,5 +26,10 @@ namespace Unikrowd.Data.Infrastructure
         {
             DbContext.SaveChanges();
         }
+
+        public async Task CommitAsync()
+        {
+            await DbContext.SaveChangesAsync();
+        }
     }
 }

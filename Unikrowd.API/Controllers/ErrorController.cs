@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Unikrowd.Bussiness.CommonModels;
-using Unikrowd.Bussiness.Excepstons;
+using Unikrowd.Bussiness.Exceptions;
 
 namespace Unikrowd.API.Controllers
 {

@@ -9,13 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Responses\" />
-    <Folder Include="DTOs\Requests\" />
-    <Folder Include="MapperViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="BCrypt-Official" Version="0.1.109" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="5.0.10" />
   </ItemGroup>
 

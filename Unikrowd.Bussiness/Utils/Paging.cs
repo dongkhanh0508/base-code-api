@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Unikrowd.Bussiness.CommonModels;
-using static Unikrowd.Data.Enums.CommonEnums;
+using static Unikrowd.Bussiness.CommonModels.CommonEnums;
 
 namespace Unikrowd.Bussiness.Utils
 {
@@ -12,7 +11,6 @@ namespace Unikrowd.Bussiness.Utils
         public static PagedResults<T> PagingAndSorting(IEnumerable<T> data, SortOrder sortOrder, string colName, int? index, int? size)
 
         {
-            
             if (sortOrder == SortOrder.Ascending)
             {
                 data = data.OrderBy(item => typeof(T).GetProperties().First(x => x.Name.Contains(colName, StringComparison.CurrentCultureIgnoreCase)).GetValue(item)).ToList();
@@ -28,7 +26,11 @@ namespace Unikrowd.Bussiness.Utils
                 int skipCount = (int)(index * size);
                 data = skipCount == 0 ? data.Take((int)size) : data.Skip(skipCount).Take((int)size).ToList();
             }
-            
+            else
+            {
+                index = 1;
+                size = data.Count();
+            }
 
             int totalRecord = data.Count();
             var mod = totalRecord % size;

@@ -8,7 +8,44 @@
             <summary>
             Get Account
             </summary>
+            <param name="request"></param>
             <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.AccountsController.GetAccountById(System.Int32)">
+            <summary>
+            Get Account By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.AccountsController.PostAccount(Unikrowd.Bussiness.DTOs.Requests.PostAccountRequest)">
+            <summary>
+            Add new account
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.AccountsController.PutAccount(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PutAccountRequest)">
+            <summary>
+            Update account
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.AccountsController.DeleteAccount(System.Int32)">
+            <summary>
+            Delete account
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.AuthensController.GetAccounts(Unikrowd.Bussiness.DTOs.Requests.AuthenRequest)">
+            <summary>
+            Login with username and pasword
+            </summary>
+            <param name="request"></param>
+            <returns></returns>          
         </member>
     </members>
 </doc>

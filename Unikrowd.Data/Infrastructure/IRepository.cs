@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using static Unikrowd.Data.Enums.CommonEnums;
 
 namespace Unikrowd.Data.Infrastructure
 {
@@ -30,6 +29,7 @@ namespace Unikrowd.Data.Infrastructure
 
         // Get an entity by int id
         T GetSingleById(int id);
+        Task<T> GetSingleByIdAsync(int id);
 
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
         Task<T> GetSingleByConditionAsync(Expression<Func<T, bool>> expression, string[] includes = null);
@@ -39,8 +39,7 @@ namespace Unikrowd.Data.Infrastructure
         IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);
         Task<IEnumerable<T>> GetMultiAsync(Expression<Func<T, bool>> predicate, string[] includes = null);
 
-        IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null);
-        IEnumerable<T> GetMultiSortingPaging(Expression<Func<T, bool>> predicate, SortOrder sortOrder, string colName, out int total, int index = 1, int size = 20, string[] includes = null);
+        IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null);       
 
         int Count(Expression<Func<T, bool>> where);
 

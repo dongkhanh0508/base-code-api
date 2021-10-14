@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using Unikrowd.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using static Unikrowd.Data.Enums.CommonEnums;
 
 namespace Unikrowd.Data.Infrastructure
 {
@@ -86,6 +85,10 @@ namespace Unikrowd.Data.Infrastructure
         public virtual T GetSingleById(int id)
         {
             return dbSet.Find(id);
+        }
+        public virtual async Task<T> GetSingleByIdAsync(int id)
+        {
+            return await dbSet.FindAsync(id);
         }
 
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
@@ -188,38 +191,6 @@ namespace Unikrowd.Data.Infrastructure
 
             _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
             total = _resetSet.Count();
-            return _resetSet.AsQueryable();
-        }
-        public virtual IEnumerable<T> GetMultiSortingPaging(Expression<Func<T, bool>> predicate, SortOrder sortOrder, string colName, out int total, int index = 1, int size = 20, string[] includes = null)
-        {
-            index--;
-            int skipCount = index * size;
-            IQueryable<T> _resetSet;
-
-            //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE
-            if (includes != null && includes.Count() > 0)
-            {
-                var query = dataContext.Set<T>().Include(includes.First());
-                foreach (var include in includes.Skip(1))
-                    query = query.Include(include);
-                _resetSet = predicate != null ? query.Where<T>(predicate).AsQueryable() : query.AsQueryable();
-            }
-            else
-            {
-                _resetSet = predicate != null ? dataContext.Set<T>().Where<T>(predicate).AsQueryable() : dataContext.Set<T>().AsQueryable();
-            }
-
-            if(sortOrder == SortOrder.Ascending)
-            {
-                _resetSet.OrderBy(item => typeof(T).GetProperties().First(x => x.Name.Contains(colName, System.StringComparison.CurrentCultureIgnoreCase)).GetValue(item));
-            }
-            else if(sortOrder == SortOrder.Descending)
-            {
-                _resetSet.OrderByDescending(item => typeof(T).GetProperties().First(x => x.Name.Contains(colName, System.StringComparison.CurrentCultureIgnoreCase)).GetValue(item));
-            }
-            total = _resetSet.Count();
-            _resetSet = skipCount == 0 ? _resetSet.Take(size) : _resetSet.Skip(skipCount).Take(size);
-            
             return _resetSet.AsQueryable();
         }
 
