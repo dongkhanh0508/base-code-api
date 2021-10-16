@@ -11,7 +11,7 @@ namespace Unikrowd.Data.Context
     {
         public UnikrowdContext()
         {
-            this.ChangeTracker.LazyLoadingEnabled = false;
+            ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public UnikrowdContext(DbContextOptions<UnikrowdContext> options)
@@ -101,19 +101,13 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.Email).HasMaxLength(100);
 
                 entity.Property(e => e.Name).HasMaxLength(100);
 
                 entity.Property(e => e.Phone).HasMaxLength(20);
 
-                entity.Property(e => e.Status).HasMaxLength(20);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Businesses)
@@ -149,17 +143,11 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
+                entity.Property(e => e.Description).HasMaxLength(500);
 
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.Property(e => e.Role).HasMaxLength(50);
-
-                entity.Property(e => e.Status).HasMaxLength(30);
+                entity.Property(e => e.Name).HasMaxLength(300);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.Business)
                     .WithMany(p => p.BusinessMembers)
@@ -175,40 +163,30 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
+                entity.Property(e => e.Description).HasMaxLength(500);
 
                 entity.Property(e => e.EndDate).HasColumnType("datetime");
 
-                entity.Property(e => e.IsDeleted)
-                    .HasColumnName("isDeleted")
-                    .HasDefaultValueSql("((0))");
-
                 entity.Property(e => e.KickoffDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name).HasMaxLength(200);
 
-                entity.Property(e => e.RiskId).HasMaxLength(20);
-
-                entity.Property(e => e.Status).HasMaxLength(30);
+                entity.Property(e => e.RejectReason).HasMaxLength(500);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<CampaignComment>(entity =>
             {
                 entity.ToTable("CampaignComment");
 
+                entity.Property(e => e.CommentContent).HasMaxLength(2000);
+
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<CampaignLocation>(entity =>
@@ -233,19 +211,15 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreateBy).HasMaxLength(50);
-
                 entity.Property(e => e.EndDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Name).HasMaxLength(300);
 
                 entity.Property(e => e.Reward).HasMaxLength(100);
 
                 entity.Property(e => e.StartDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Status).HasMaxLength(30);
-
                 entity.Property(e => e.UpdateAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdateBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.Campaign)
                     .WithMany(p => p.CampaignPackages)
@@ -278,15 +252,15 @@ namespace Unikrowd.Data.Context
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
+                entity.Property(e => e.Contents).HasMaxLength(2000);
+
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
+                entity.Property(e => e.Title).HasMaxLength(300);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<CampaignStage>(entity =>
@@ -297,17 +271,11 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.FromMonth).HasMaxLength(50);
 
                 entity.Property(e => e.StageName).HasMaxLength(50);
 
-                entity.Property(e => e.Status).HasMaxLength(50);
-
                 entity.Property(e => e.ToMonth).HasMaxLength(50);
-
-                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
@@ -325,15 +293,11 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
-                entity.Property(e => e.Status).HasMaxLength(30);
-
-                entity.Property(e => e.Title).HasMaxLength(100);
+                entity.Property(e => e.Title).HasMaxLength(300);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
+                entity.Property(e => e.Url).HasMaxLength(2000);
 
                 entity.HasOne(d => d.Campaign)
                     .WithMany(p => p.Documents)
@@ -349,17 +313,7 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
-                entity.Property(e => e.IsDeleted)
-                    .HasColumnName("isDeleted")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Status).HasMaxLength(30);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Fee>(entity =>
@@ -372,13 +326,7 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreateBy).HasMaxLength(50);
-
-                entity.Property(e => e.Type).HasColumnName("type");
-
                 entity.Property(e => e.UpdateAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdateBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Industry>(entity =>
@@ -389,19 +337,13 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.IsDeleted)
                     .HasColumnName("isDeleted")
                     .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
-                entity.Property(e => e.Status).HasMaxLength(30);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<IndustryRelation>(entity =>
@@ -417,15 +359,11 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.IsDelete).HasColumnName("isDelete");
 
                 entity.Property(e => e.LastPaymentTime).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.CampaignPackage)
                     .WithMany(p => p.Investments)
@@ -446,13 +384,7 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
-                entity.Property(e => e.IsDeleted).HasDefaultValueSql("((0))");
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Investor>(entity =>
@@ -539,19 +471,15 @@ namespace Unikrowd.Data.Context
 
             modelBuilder.Entity<News>(entity =>
             {
+                entity.Property(e => e.Content).HasMaxLength(1000);
+
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
-                entity.Property(e => e.Status).HasMaxLength(30);
-
-                entity.Property(e => e.Title).HasMaxLength(100);
+                entity.Property(e => e.Title).HasMaxLength(300);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.Campaign)
                     .WithMany(p => p.News)
@@ -588,9 +516,11 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.DocumentUrl).HasMaxLength(2000);
+
                 entity.Property(e => e.MonthRevenue).HasMaxLength(50);
 
-                entity.Property(e => e.Status).HasMaxLength(30);
+                entity.Property(e => e.RejectReason).HasMaxLength(500);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
@@ -610,11 +540,7 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<QnA>(entity =>
@@ -646,8 +572,6 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreateBy).HasMaxLength(50);
-
                 entity.Property(e => e.IsDeleted)
                     .HasColumnName("isDeleted")
                     .HasDefaultValueSql("((0))");
@@ -657,8 +581,6 @@ namespace Unikrowd.Data.Context
                 entity.Property(e => e.RiskType).HasMaxLength(50);
 
                 entity.Property(e => e.UpdateAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdateBy).HasMaxLength(50);
             });
 
             modelBuilder.Entity<SharingPeriod>(entity =>
@@ -669,17 +591,11 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.FromMonth).HasColumnType("datetime");
-
-                entity.Property(e => e.Status).HasMaxLength(30);
 
                 entity.Property(e => e.ToMonth).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
 
                 entity.HasOne(d => d.Campaign)
                     .WithMany(p => p.SharingPeriods)
@@ -719,19 +635,9 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
-                entity.Property(e => e.IsDeleted)
-                    .HasColumnName("isDeleted")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Status).HasMaxLength(30);
-
                 entity.Property(e => e.Type).HasMaxLength(50);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

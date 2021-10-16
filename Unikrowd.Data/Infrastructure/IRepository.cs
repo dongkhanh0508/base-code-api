@@ -35,6 +35,7 @@ namespace Unikrowd.Data.Infrastructure
         Task<T> GetSingleByConditionAsync(Expression<Func<T, bool>> expression, string[] includes = null);
 
         IEnumerable<T> GetAll(string[] includes = null);
+        Task<IEnumerable<T>> GetAllAsync(string[] includes = null);
 
         IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);
         Task<IEnumerable<T>> GetMultiAsync(Expression<Func<T, bool>> predicate, string[] includes = null);
@@ -44,8 +45,8 @@ namespace Unikrowd.Data.Infrastructure
         int Count(Expression<Func<T, bool>> where);
 
         bool CheckContains(Expression<Func<T, bool>> predicate);
-        IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes);
-        Task<IEnumerable<T>> GetManyAsync(Expression<Func<T, bool>> where, string includes);
+        IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string[] includes = null);
+        Task<IEnumerable<T>> GetManyAsync(Expression<Func<T, bool>> where, string[] includes = null);
 
     }
 }

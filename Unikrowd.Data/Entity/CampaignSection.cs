@@ -12,10 +12,10 @@ namespace Unikrowd.Data.Entity
         public string Title { get; set; }
         public string Contents { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public string CreatedBy { get; set; }
+        public int? CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public string UpdatedBy { get; set; }
-        public int? IsDeleted { get; set; }
+        public int? UpdatedBy { get; set; }
         public int? ShowOrder { get; set; }
+        public int? Status { get; set; }
     }
 }

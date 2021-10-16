@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Unikrowd.Bussiness.CommonModels;
 using Unikrowd.Bussiness.DTOs.Requests;
@@ -19,14 +17,20 @@ namespace Unikrowd.Bussiness.Services
     public interface IAccountService
     {
         Task<PagedResults<AccountViewModel>> GetAllPaging(PagingRequest request);
-        Task<AccountViewModel> GetAccountById(int id);
-        Task<AccountViewModel> PostAccount(PostAccountRequest model, int userId);
-        Task<AccountViewModel> UpdateAccount(int id, PutAccountRequest model, int userId);
-        Task<AccountViewModel> DeleteAccount(int id);
-        void Save();
-        Task SaveAsync();
 
+        Task<AccountViewModel> GetAccountById(int id);
+
+        Task<AccountViewModel> PostAccount(PostAccountRequest model, int userId);
+
+        Task<AccountViewModel> UpdateAccount(int id, PutAccountRequest model, int userId);
+
+        Task<AccountViewModel> DeleteAccount(int id);
+
+        void Save();
+
+        Task SaveAsync();
     }
+
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository _accountRepository;
@@ -54,7 +58,7 @@ namespace Unikrowd.Bussiness.Services
         }
 
         public async Task<PagedResults<AccountViewModel>> GetAllPaging(PagingRequest request)
-        {           
+        {
             var query = await _accountRepository.GetManyAsync(x => x.Status == (int)AccountStatus.Active, null);
             var rs = Paging<Account>.PagingAndSorting(query, request.SortType, request.ColName, request.Page, request.PageSize);
             var rsViewModel = new PagedResults<AccountViewModel>

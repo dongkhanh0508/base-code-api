@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Unikrowd.Data.Entity;
+﻿using Unikrowd.Data.Entity;
 using Unikrowd.Data.Infrastructure;
 
 namespace Unikrowd.Data.Repositories

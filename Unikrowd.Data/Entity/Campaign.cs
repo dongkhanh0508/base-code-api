@@ -28,15 +28,14 @@ namespace Unikrowd.Data.Entity
         public int? Maturity { get; set; }
         public DateTime? EndDate { get; set; }
         public double? InvestmentMultiple { get; set; }
-        public string Status { get; set; }
+        public int? Status { get; set; }
         public int? BusinessId { get; set; }
-        public string RiskId { get; set; }
-        public string CreatedBy { get; set; }
+        public int? RiskId { get; set; }
+        public int? CreatedBy { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public string UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string Description { get; set; }
-        public int? IsDeleted { get; set; }
         public string RejectReason { get; set; }
 
         public virtual ICollection<CampaignLocation> CampaignLocations { get; set; }

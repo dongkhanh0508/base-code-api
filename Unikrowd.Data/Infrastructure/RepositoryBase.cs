@@ -91,12 +91,26 @@ namespace Unikrowd.Data.Infrastructure
             return await dbSet.FindAsync(id);
         }
 
-        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
+        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string[] includes = null)
         {
-            return dbSet.Where(where).ToList();
+            if (includes != null && includes.Count() > 0)
+            {
+                var query = dataContext.Set<T>().Include(includes.First());
+                foreach (var include in includes.Skip(1))
+                    query = query.Include(include);
+                return query.AsQueryable();
+            }
+            return dbSet.Where(where).AsQueryable();
         }
-        public virtual async Task<IEnumerable<T>> GetManyAsync(Expression<Func<T, bool>> where, string includes)
+        public virtual async Task<IEnumerable<T>> GetManyAsync(Expression<Func<T, bool>> where, string[] includes = null)
         {
+            if (includes != null && includes.Count() > 0)
+            {
+                var query = dataContext.Set<T>().Include(includes.First());
+                foreach (var include in includes.Skip(1))
+                    query = query.Include(include);
+                return query.AsQueryable();
+            }
             return await dbSet.Where(where).ToListAsync();
         }
 
@@ -118,6 +132,19 @@ namespace Unikrowd.Data.Infrastructure
             }
 
             return dataContext.Set<T>().AsQueryable();
+        }
+        public async Task<IEnumerable<T>> GetAllAsync(string[] includes = null)
+        {
+            //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE
+            if (includes != null && includes.Count() > 0)
+            {
+                var query = dataContext.Set<T>().Include(includes.First());
+                foreach (var include in includes.Skip(1))
+                    query = query.Include(include);
+                return await query.ToListAsync();
+            }
+
+            return await dataContext.Set<T>().ToListAsync();
         }
 
         public T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null)

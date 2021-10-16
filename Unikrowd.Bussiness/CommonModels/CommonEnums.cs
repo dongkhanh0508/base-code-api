@@ -25,5 +25,21 @@ namespace Unikrowd.Bussiness.CommonModels
             UnActive = 2,
             Deleted = 3
         }
+        public enum CampaignStatus
+        {
+            All = 0,
+            New = 1,
+            Waiting = 2,
+            Active = 3,
+            Deleted = 4
+        }
+        public enum CampaignPackageStatus
+        {
+            All = 0,
+            New = 1,
+            Waiting = 2,
+            Active = 3,
+            Deleted = 4
+        }
     }
 }

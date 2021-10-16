@@ -47,5 +47,365 @@
             <param name="request"></param>
             <returns></returns>          
         </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.BusinessController.GetBusiness(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Business
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.BusinessController.GetBusinessById(System.Int32)">
+            <summary>
+            Get Business By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.BusinessController.PostBusiness(Unikrowd.Bussiness.DTOs.Requests.PostBusinessRequest)">
+            <summary>
+            Add new Business
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.BusinessController.PutBusiness(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PutBusinessRequest)">
+            <summary>
+            Update Business
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.BusinessController.DeleteBusiness(System.Int32)">
+            <summary>
+            Delete Business
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.GetCampaigns(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Campaign
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.GetCampaignById(System.Int32)">
+            <summary>
+            Get Campaign By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.PostCampaign(Unikrowd.Bussiness.DTOs.Requests.PostCampaignRequest)">
+            <summary>
+            Add new Campaign
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.PutCampaign(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PutCampaignRequest)">
+            <summary>
+            Update Campaign
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.DeleteCampaign(System.Int32)">
+            <summary>
+            Delete Campaign
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.GetCampaignPackages(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get CampaignPackage 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.GetCampaignPackageById(System.Int32)">
+            <summary>
+            Get CampaignPackage By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.PostCampaignPackage(Unikrowd.Bussiness.DTOs.Requests.PostCampaignPackageRequest)">
+            <summary>
+            Add new CampaignPackage
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.PutCampaignPackage(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PutCampaignPackageRequest)">
+            <summary>
+            Update CampaignPackage
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.CampaignsController.DeleteCampaignPackage(System.Int32)">
+            <summary>
+            Delete CampaignPackage
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.DocumentsController.GetDocuments(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Document
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.DocumentsController.GetDocumentById(System.Int32)">
+            <summary>
+            Get Document By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.DocumentsController.PostDocument(Unikrowd.Bussiness.DTOs.Requests.PostDocumentRequest)">
+            <summary>
+            Add new Document
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.DocumentsController.PutDocument(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PutDocumentRequest)">
+            <summary>
+            Update Document
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.DocumentsController.DeleteDocument(System.Int32)">
+            <summary>
+            Delete Document
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.FeesController.GetFees(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Fee
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.FeesController.GetFeeById(System.Int32)">
+            <summary>
+            Get Fee By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.FeesController.PostFee(Unikrowd.Bussiness.DTOs.Requests.FeeRequest)">
+            <summary>
+            Add new Fee
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.FeesController.PutFee(System.Int32,Unikrowd.Bussiness.DTOs.Requests.FeeRequest)">
+            <summary>
+            Update Fee
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.FeesController.DeleteFee(System.Int32)">
+            <summary>
+            Delete Fee
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.IndustryController.GetIndustrys(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Industry
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.IndustryController.GetIndustryById(System.Int32)">
+            <summary>
+            Get Industry By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.IndustryController.PostIndustry(Unikrowd.Bussiness.DTOs.Requests.IndustryRequest)">
+            <summary>
+            Add new Industry
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.IndustryController.PutIndustry(System.Int32,Unikrowd.Bussiness.DTOs.Requests.IndustryRequest)">
+            <summary>
+            Update Industry
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.IndustryController.DeleteIndustry(System.Int32)">
+            <summary>
+            Delete Industry
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.InvestorsController.GetInvestors(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Investor
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.InvestorsController.GetInvestorById(System.Int32)">
+            <summary>
+            Get Investor By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.InvestorsController.PostInvestor(Unikrowd.Bussiness.DTOs.Requests.PostInvestorRequest)">
+            <summary>
+            Add new Investor
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.InvestorsController.PutInvestor(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PutInvestorRequest)">
+            <summary>
+            Update Investor
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.InvestorsController.DeleteInvestor(System.Int32)">
+            <summary>
+            Delete Investor
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.LocationsController.GetLocations(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Location
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.LocationsController.GetLocationById(System.Int32)">
+            <summary>
+            Get Location By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.LocationsController.PostLocation(Unikrowd.Bussiness.DTOs.Requests.LocationRequest)">
+            <summary>
+            Add new Location
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.LocationsController.PutLocation(System.Int32,Unikrowd.Bussiness.DTOs.Requests.LocationRequest)">
+            <summary>
+            Update Location
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.LocationsController.DeleteLocation(System.Int32)">
+            <summary>
+            Delete Location
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.NewsController.GetAllNews(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get News
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.NewsController.GetNewsById(System.Int32)">
+            <summary>
+            Get News By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.NewsController.PostNews(Unikrowd.Bussiness.DTOs.Requests.NewsRequest)">
+            <summary>
+            Add new News
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.NewsController.PutNews(System.Int32,Unikrowd.Bussiness.DTOs.Requests.NewsRequest)">
+            <summary>
+            Update News
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.NewsController.DeleteNews(System.Int32)">
+            <summary>
+            Delete News
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.PaymentsController.GetPayments(Unikrowd.Bussiness.CommonModels.PagingRequest)">
+            <summary>
+            Get Payment
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.PaymentsController.GetPaymentById(System.Int32)">
+            <summary>
+            Get Payment By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.PaymentsController.PostPayment(Unikrowd.Bussiness.DTOs.Requests.PaymentRequest)">
+            <summary>
+            Add new Payment
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.PaymentsController.PutPayment(System.Int32,Unikrowd.Bussiness.DTOs.Requests.PaymentRequest)">
+            <summary>
+            Update Payment
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unikrowd.API.Controllers.TradeMap.API.Controllers.PaymentsController.DeletePayment(System.Int32)">
+            <summary>
+            Delete Payment
+            </summary>
+            <param name="id"></param>          
+            <returns></returns>
+        </member>
     </members>
 </doc>

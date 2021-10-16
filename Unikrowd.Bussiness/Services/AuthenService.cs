@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Unikrowd.Bussiness.CommonModels;
 using Unikrowd.Bussiness.DTOs.Requests;
@@ -16,12 +13,15 @@ using Unikrowd.Data.Repositories;
 
 namespace Unikrowd.Bussiness.Services
 {
-    public interface IAuthenService {
+    public interface IAuthenService
+    {
         Task<JwtResponse> Login(AuthenRequest request);
+
         // Task<JwtResponse> Lo(AuthenRequest request);
     }
+
     public class AuthenService : IAuthenService
-{
+    {
         private readonly IAccountRepository _accountRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -36,12 +36,12 @@ namespace Unikrowd.Bussiness.Services
         }
 
         public async Task<JwtResponse> Login(AuthenRequest request)
-        {          
-            var account =await _accountRepository.GetSingleByConditionAsync(x => x.Username == request.Username);           
+        {
+            var account = await _accountRepository.GetSingleByConditionAsync(x => x.Username == request.Username);
             if (account != null)
             {
                 bool verified = BCrypt.Net.BCrypt.Verify(request.Password, account.Password);
-                if(!verified) throw new CustomException(HttpStatusCode.Unauthorized, GeneralMessages.Unauthorized, "");
+                if (!verified) throw new CustomException(HttpStatusCode.Unauthorized, GeneralMessages.Unauthorized, "");
                 var jwtModel = _mapper.Map<Account, GenerateJwtModel>(account);
                 string jwt = JwtHelper.GenerateJwtTokenAgent(jwtModel, _config["AppSettings:Secret"], _config["AppSettings:Issuer"]);
                 return new JwtResponse

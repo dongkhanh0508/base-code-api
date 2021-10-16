@@ -21,11 +21,11 @@ namespace Unikrowd.Data.Entity
         public string Reward { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public string Status { get; set; }
+        public int? Status { get; set; }
         public DateTime? CreateAt { get; set; }
-        public string CreateBy { get; set; }
+        public int? CreateBy { get; set; }
         public DateTime? UpdateAt { get; set; }
-        public string UpdateBy { get; set; }
+        public int? UpdateBy { get; set; }
 
         public virtual Campaign Campaign { get; set; }
         public virtual ICollection<Investment> Investments { get; set; }

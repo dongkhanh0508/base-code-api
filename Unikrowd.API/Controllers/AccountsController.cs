@@ -25,7 +25,7 @@ namespace Unikrowd.API.Controllers
         {
             private readonly IAccountService _accountService;         
 
-            public AccountsController(IAccountService accountService, IMapper mapper)
+            public AccountsController(IAccountService accountService)
             {
                 _accountService = accountService;              
             }

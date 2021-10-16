@@ -23,7 +23,6 @@ namespace Unikrowd.Data.Entity
         public string Email { get; set; }
         public string Bank { get; set; }
         public string BanksAccount { get; set; }
-        public int? Status { get; set; }
         public int? UserId { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedAt { get; set; }

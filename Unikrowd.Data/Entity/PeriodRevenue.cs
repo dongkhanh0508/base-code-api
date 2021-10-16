@@ -11,7 +11,7 @@ namespace Unikrowd.Data.Entity
         public int? CampaignId { get; set; }
         public string MonthRevenue { get; set; }
         public double? Amount { get; set; }
-        public string Status { get; set; }
+        public int? Status { get; set; }
         public int? CreatedBy { get; set; }
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
