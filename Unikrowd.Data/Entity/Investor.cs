@@ -12,6 +12,9 @@ namespace Unikrowd.Data.Entity
             Investments = new HashSet<Investment>();
             InvestorLocations = new HashSet<InvestorLocation>();
             Locations = new HashSet<Location>();
+            Payments = new HashSet<Payment>();
+            QnAs = new HashSet<QnA>();
+            Wallets = new HashSet<Wallet>();
         }
 
         public int Id { get; set; }
@@ -33,5 +36,8 @@ namespace Unikrowd.Data.Entity
         public virtual ICollection<Investment> Investments { get; set; }
         public virtual ICollection<InvestorLocation> InvestorLocations { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<QnA> QnAs { get; set; }
+        public virtual ICollection<Wallet> Wallets { get; set; }
     }
 }

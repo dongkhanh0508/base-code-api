@@ -11,6 +11,7 @@ namespace Unikrowd.Data.Entity
         {
             BusinessIndustries = new HashSet<BusinessIndustry>();
             BusinessMembers = new HashSet<BusinessMember>();
+            Wallets = new HashSet<Wallet>();
         }
 
         public int Id { get; set; }
@@ -32,5 +33,6 @@ namespace Unikrowd.Data.Entity
         public virtual Account User { get; set; }
         public virtual ICollection<BusinessIndustry> BusinessIndustries { get; set; }
         public virtual ICollection<BusinessMember> BusinessMembers { get; set; }
+        public virtual ICollection<Wallet> Wallets { get; set; }
     }
 }

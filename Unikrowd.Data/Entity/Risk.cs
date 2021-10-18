@@ -20,7 +20,7 @@ namespace Unikrowd.Data.Entity
         public DateTime? CreateAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public string Description { get; set; }
-        public int? IsDeleted { get; set; }
+        public int? Status { get; set; }
 
         public virtual ICollection<CampaignRisk> CampaignRisks { get; set; }
     }

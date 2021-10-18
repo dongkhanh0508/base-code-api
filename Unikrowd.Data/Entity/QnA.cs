@@ -7,17 +7,16 @@ namespace Unikrowd.Data.Entity
 {
     public partial class QnA
     {
-        public int Id { get; set; }
         public string Question { get; set; }
-        public int? CampaignId { get; set; }
-        public string CreatedBy { get; set; }
+        public int CampaignId { get; set; }
+        public int CreatedBy { get; set; }
         public DateTime? CreatedAt { get; set; }
         public string Answer { get; set; }
-        public string AnsweredBy { get; set; }
+        public int? AnsweredBy { get; set; }
         public DateTime? AnsweredAt { get; set; }
-        public string Status { get; set; }
-        public string UpdatedBy { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-        public int? ParentId { get; set; }
+        public int? Status { get; set; }
+
+        public virtual Campaign Campaign { get; set; }
+        public virtual Investor CreatedByNavigation { get; set; }
     }
 }

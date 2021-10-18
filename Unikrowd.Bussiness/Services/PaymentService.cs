@@ -72,7 +72,7 @@ namespace Unikrowd.Bussiness.Services
         public async Task<PaymentViewModel> PostPayment(PaymentRequest model, int userId)
         {
             var insert = _mapper.Map<PaymentRequest, Payment>(model);
-            //insert.CreatedBy = userId;
+            insert.CreatedBy = userId;
             await _paymentRepository.AddAsync(insert);
             return _mapper.Map<Payment, PaymentViewModel>(insert);
         }
@@ -91,7 +91,7 @@ namespace Unikrowd.Bussiness.Services
         {
             var query = await _paymentRepository.GetSingleByIdAsync(id);
             var update = _mapper.Map(model, query);
-            //update.UpdatedBy = userId;
+            update.UpdatedBy = userId;
             _paymentRepository.Update(update);
             return _mapper.Map<Payment, PaymentViewModel>(update);
         }

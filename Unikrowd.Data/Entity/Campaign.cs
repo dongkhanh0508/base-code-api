@@ -16,7 +16,9 @@ namespace Unikrowd.Data.Entity
             Documents = new HashSet<Document>();
             Locations = new HashSet<Location>();
             News = new HashSet<News>();
+            Payments = new HashSet<Payment>();
             PeriodRevenues = new HashSet<PeriodRevenue>();
+            QnAs = new HashSet<QnA>();
             SharingPeriods = new HashSet<SharingPeriod>();
         }
 
@@ -45,7 +47,9 @@ namespace Unikrowd.Data.Entity
         public virtual ICollection<Document> Documents { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
         public virtual ICollection<News> News { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
         public virtual ICollection<PeriodRevenue> PeriodRevenues { get; set; }
+        public virtual ICollection<QnA> QnAs { get; set; }
         public virtual ICollection<SharingPeriod> SharingPeriods { get; set; }
     }
 }

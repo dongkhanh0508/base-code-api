@@ -18,5 +18,8 @@ namespace Unikrowd.Data.Entity
         public int? UpdatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int? Status { get; set; }
+
+        public virtual Business Business { get; set; }
+        public virtual Investor Investor { get; set; }
     }
 }

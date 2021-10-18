@@ -201,6 +201,12 @@ namespace Unikrowd.Data.Context
                     .HasForeignKey(d => d.CampaignId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CampaignLocation_Campaign");
+
+                entity.HasOne(d => d.Location)
+                    .WithMany(p => p.CampaignLocations)
+                    .HasForeignKey(d => d.LocationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CampaignLocation_Location");
             });
 
             modelBuilder.Entity<CampaignPackage>(entity =>
@@ -368,11 +374,13 @@ namespace Unikrowd.Data.Context
                 entity.HasOne(d => d.CampaignPackage)
                     .WithMany(p => p.Investments)
                     .HasForeignKey(d => d.CampaignPackageId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Investment_CampaignPackage");
 
                 entity.HasOne(d => d.Owner)
                     .WithMany(p => p.Investments)
                     .HasForeignKey(d => d.OwnerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Investment_Investor");
             });
 
@@ -438,6 +446,12 @@ namespace Unikrowd.Data.Context
                     .HasForeignKey(d => d.InvestorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_InvestorLocation_Investor");
+
+                entity.HasOne(d => d.Location)
+                    .WithMany(p => p.InvestorLocations)
+                    .HasForeignKey(d => d.LocationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_InvestorLocation_Location");
             });
 
             modelBuilder.Entity<Location>(entity =>
@@ -495,17 +509,26 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
-
                 entity.Property(e => e.Description).HasMaxLength(250);
 
                 entity.Property(e => e.PaymentType).HasMaxLength(250);
 
-                entity.Property(e => e.Status).HasMaxLength(30);
-
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
+                entity.HasOne(d => d.Campaign)
+                    .WithMany(p => p.Payments)
+                    .HasForeignKey(d => d.CampaignId)
+                    .HasConstraintName("FK_Payment_Campaign");
+
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Payments)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .HasConstraintName("FK_Payment_Investor");
+
+                entity.HasOne(d => d.Investment)
+                    .WithMany(p => p.Payments)
+                    .HasForeignKey(d => d.InvestmentId)
+                    .HasConstraintName("FK_Payment_Investment");
             });
 
             modelBuilder.Entity<PeriodRevenue>(entity =>
@@ -545,23 +568,27 @@ namespace Unikrowd.Data.Context
 
             modelBuilder.Entity<QnA>(entity =>
             {
+                entity.HasKey(e => new { e.CampaignId, e.CreatedBy });
+
                 entity.ToTable("QnA");
 
                 entity.Property(e => e.AnsweredAt).HasColumnType("datetime");
-
-                entity.Property(e => e.AnsweredBy).HasMaxLength(50);
 
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CreatedBy).HasMaxLength(50);
+                entity.HasOne(d => d.Campaign)
+                    .WithMany(p => p.QnAs)
+                    .HasForeignKey(d => d.CampaignId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QnA_Campaign");
 
-                entity.Property(e => e.Status).HasMaxLength(30);
-
-                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy).HasMaxLength(50);
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.QnAs)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QnA_Investor");
             });
 
             modelBuilder.Entity<Risk>(entity =>
@@ -572,11 +599,9 @@ namespace Unikrowd.Data.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.IsDeleted)
-                    .HasColumnName("isDeleted")
-                    .HasDefaultValueSql("((0))");
+                entity.Property(e => e.Description).HasMaxLength(500);
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name).HasMaxLength(300);
 
                 entity.Property(e => e.RiskType).HasMaxLength(50);
 
@@ -624,7 +649,7 @@ namespace Unikrowd.Data.Context
                 entity.HasOne(d => d.Payment)
                     .WithMany(p => p.Transactions)
                     .HasForeignKey(d => d.PaymentId)
-                    .HasConstraintName("FK_Transactions_Payment");
+                    .HasConstraintName("FK_Transaction_Payment");
             });
 
             modelBuilder.Entity<Wallet>(entity =>
@@ -638,6 +663,16 @@ namespace Unikrowd.Data.Context
                 entity.Property(e => e.Type).HasMaxLength(50);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Business)
+                    .WithMany(p => p.Wallets)
+                    .HasForeignKey(d => d.BusinessId)
+                    .HasConstraintName("FK_Wallet_Business");
+
+                entity.HasOne(d => d.Investor)
+                    .WithMany(p => p.Wallets)
+                    .HasForeignKey(d => d.InvestorId)
+                    .HasConstraintName("FK_Wallet_Investor");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -11,5 +11,6 @@ namespace Unikrowd.Data.Entity
         public int LocationId { get; set; }
 
         public virtual Campaign Campaign { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

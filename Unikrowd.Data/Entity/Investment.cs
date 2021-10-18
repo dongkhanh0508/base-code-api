@@ -7,10 +7,13 @@ namespace Unikrowd.Data.Entity
 {
     public partial class Investment
     {
-        public int Id { get; set; }
-        public int? OwnerId { get; set; }
-        public int? CampaignId { get; set; }
-        public int? CampaignPackageId { get; set; }
+        public Investment()
+        {
+            Payments = new HashSet<Payment>();
+        }
+
+        public int OwnerId { get; set; }
+        public int CampaignPackageId { get; set; }
         public int? Quantity { get; set; }
         public double? TotalPledge { get; set; }
         public double? Paid { get; set; }
@@ -21,8 +24,10 @@ namespace Unikrowd.Data.Entity
         public int? PaidMaturity { get; set; }
         public DateTime? LastPaymentTime { get; set; }
         public int? IsDelete { get; set; }
+        public int Id { get; set; }
 
         public virtual CampaignPackage CampaignPackage { get; set; }
         public virtual Investor Owner { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

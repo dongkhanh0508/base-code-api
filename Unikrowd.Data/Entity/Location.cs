@@ -7,6 +7,12 @@ namespace Unikrowd.Data.Entity
 {
     public partial class Location
     {
+        public Location()
+        {
+            CampaignLocations = new HashSet<CampaignLocation>();
+            InvestorLocations = new HashSet<InvestorLocation>();
+        }
+
         public int Id { get; set; }
         public string City { get; set; }
         public string District { get; set; }
@@ -23,5 +29,7 @@ namespace Unikrowd.Data.Entity
 
         public virtual Campaign Campaign { get; set; }
         public virtual Investor Investor { get; set; }
+        public virtual ICollection<CampaignLocation> CampaignLocations { get; set; }
+        public virtual ICollection<InvestorLocation> InvestorLocations { get; set; }
     }
 }

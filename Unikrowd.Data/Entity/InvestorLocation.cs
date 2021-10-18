@@ -11,5 +11,6 @@ namespace Unikrowd.Data.Entity
         public int LocationId { get; set; }
 
         public virtual Investor Investor { get; set; }
+        public virtual Location Location { get; set; }
     }
 }
